@@ -2,7 +2,7 @@ module "ecs_cluster" {
   source = "./ecs_module"
 
   name                    = "geofront-ecs"
-    region                = "eu-west-1"
+  region                  = "eu-west-1"
   instance_type           = "t2.micro"
   key_name                = "geofront"
   vpc_id                  = "${module.geofront-eu-west-1.id}"
