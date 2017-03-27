@@ -9,7 +9,7 @@ import boto3
 
 logging.basicConfig()
 logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 # Establish boto3 session
 session = boto3.session.Session()
