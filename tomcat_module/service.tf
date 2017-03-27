@@ -8,6 +8,16 @@ resource "aws_ecs_service" "tomcat" {
   deployment_maximum_percent         = 100
   deployment_minimum_healthy_percent = 67
 
+  placement_strategy {
+    field = "cpu"
+    type  = "binpack"
+  }
+
+  placement_strategy {
+    field = "attribute:ecs.availability-zone"
+    type  = "spread"
+  }
+
   load_balancer {
     target_group_arn = "${aws_alb_target_group.http.id}"
     container_name   = "${var.name}"
