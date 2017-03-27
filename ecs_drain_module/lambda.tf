@@ -7,6 +7,7 @@ resource "aws_lambda_function" "ecs_drain_lambda" {
   runtime          = "python2.7"
   timeout          = 300
   memory_size      = 256
+  publish          = true
 }
 
 resource "aws_sns_topic" "sns" {
