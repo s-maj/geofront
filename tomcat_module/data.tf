@@ -3,12 +3,6 @@ data "template_file" "task_definition" {
   vars {
     container_name    = "${var.name}"
     container_version = "${var.container_version}"
-    nodes_number      = "${var.nodes_number}"
-    ec2_tag_key       = "${var.ec2_discovery_key}"
-    ec2_tag_value     = "${var.ec2_discovery_value}"
-    domain            = "${var.domain}"
-    datacenter        = "${var.datacenter}"
-    encrypt_key       = "${var.key}"
   }
 }
 
