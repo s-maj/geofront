@@ -3,7 +3,7 @@ module "ecs_cluster" {
 
   vpc_id                  = "${module.geofront-eu-west-1.id}"
   subnet_list_id          = "${module.geofront-eu-west-1.subnet_list}"
-  sns_lambda_drain        = "${modulelambda_drain.sns_arn}"
+  sns_lambda_drain        = "${module.lambda_drain.sns_arn}"
   name                    = "geofront-ecs"
   region                  = "eu-west-1"
   instance_type           = "t2.micro"
