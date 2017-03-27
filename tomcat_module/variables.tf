@@ -31,3 +31,8 @@ variable "is_dns_zone_private" {
   type    = "string"
   default = "fa;se"
 }
+
+variable "region" {
+  type    = "string"
+  default = "eu-west-1"
+}
