@@ -6,7 +6,7 @@ resource "aws_lambda_function" "ecs_drain_lambda" {
   handler          = "index.lambda_handler"
   runtime          = "python2.7"
   timeout          = 300
-  memory_size      = 256
+  memory_size      = 128
   publish          = true
 }
 

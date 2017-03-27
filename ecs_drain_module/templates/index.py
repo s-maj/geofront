@@ -160,7 +160,9 @@ def lambda_handler(event, context):
 
             # If tasks are still running...
             if tasksRunning == 1:
-                response = snsClient.list_subscriptions()
+                response = snsClient.list_subscriptions_by_topic(
+                    TopicArn=TopicArn
+                )
                 for key in response['Subscriptions']:
                     logger.info("Endpoint %s AND TopicArn %s and protocol %s ", key['Endpoint'], key['TopicArn'],
                                 key['Protocol'])

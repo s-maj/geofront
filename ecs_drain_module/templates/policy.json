@@ -19,7 +19,7 @@
         "ecs:ListTasks",
         "ecs:DescribeTasks",
         "sns:Publish",
-        "sns:ListSubscriptions"
+        "sns:ListSubscriptionsByTopic"
       ],
       "Effect": "Allow",
       "Resource": "*"

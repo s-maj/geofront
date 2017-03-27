@@ -5,8 +5,8 @@ resource "aws_ecs_service" "tomcat" {
   task_definition                    = "${aws_ecs_task_definition.tomcat.arn}"
   iam_role                           = "${aws_iam_role.service_role.arn}"
   depends_on                         = ["aws_iam_role.service_role", "aws_alb_target_group.http"]
-  deployment_maximum_percent         = 100
-  deployment_minimum_healthy_percent = 67
+  deployment_maximum_percent         = 200
+  deployment_minimum_healthy_percent = 100
 
   placement_strategy {
     field = "cpu"
