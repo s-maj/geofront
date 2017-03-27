@@ -3,8 +3,7 @@
   "Statement": [
     {
       "Action": [
-        "ec2:DescribeTags",
-        "ec2:DescribeInstances"
+        "ec2:DescribeTags"
       ],
       "Effect": "Allow",
       "Resource": "*"
