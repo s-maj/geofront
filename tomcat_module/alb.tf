@@ -13,7 +13,7 @@ resource "aws_alb_target_group" "http" {
   vpc_id                = "${var.vpc_id}"
 
   health_check {
-    path = "/v1/status/leader"
+    path = "/"
   }
 }
 
