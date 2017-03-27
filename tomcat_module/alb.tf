@@ -30,12 +30,12 @@ resource "aws_alb_listener" "http" {
 
 resource "aws_route53_record" "record" {
   zone_id = "${data.aws_route53_zone.zone.zone_id}"
-  name = "${data.aws_route53_zone.zone.name}"
-  type = "A"
+  name    = "${data.aws_route53_zone.zone.name}"
+  type    = "A"
 
   alias {
-    name = "${data.aws_route53_zone.zone.zone_id}"
-    zone_id = "${data.aws_route53_zone.zone.name}"
+    name                   = "${data.aws_route53_zone.zone.zone_id}"
+    zone_id                = "${data.aws_route53_zone.zone.name}"
     evaluate_target_health = true
   }
 }
