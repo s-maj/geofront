@@ -8,7 +8,7 @@ resource "aws_iam_instance_profile" "lambda_profile" {
   roles = ["${aws_iam_role.lambda_role.id}"]
 }
 
-resource "aws_iam_role_policy_attachment" "autoscaling-notification-policy-attach" {
-  role       = "${aws_iam_role.lambda_role.id}"
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AutoScalingNotificationAccessRole"
+resource "aws_iam_role_policy" "lambda_policy" {
+  role   = "${aws_iam_role.lambda_role.id}"
+  policy = "${data.template_file.lambda_policy.rendered}"
 }

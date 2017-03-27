@@ -7,3 +7,7 @@ data "archive_file" "lambda_zip" {
 data "template_file" "lambda_profile" {
   template = "${file("${path.module}/templates/profile.json")}"
 }
+
+data "template_file" "lambda_policy" {
+  template = "${file("${path.module}/templates/policy.json")}"
+}

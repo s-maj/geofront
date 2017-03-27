@@ -1,4 +1,4 @@
-module "tomcat" {
+/*module "tomcat" {
   source = "./tomcat_module"
 
   vpc_id              = "${module.geofront-eu-west-1.id}"
@@ -11,4 +11,4 @@ module "tomcat" {
   elb_dns_name        = "tomcat.ganeti.pl"
   container_version   = "tomcat:8.5"
   container_count     = 2
-}
+}*/
