@@ -9,7 +9,7 @@ resource "aws_ecs_service" "tomcat" {
   deployment_minimum_healthy_percent = 67
 
   load_balancer {
-    target_group_arn = "${aws_alb_target_group.consul_api.id}"
+    target_group_arn = "${aws_alb_target_group.http.id}"
     container_name = "${var.name}"
     container_port = 8080
   }
