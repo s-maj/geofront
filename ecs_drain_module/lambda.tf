@@ -4,6 +4,7 @@ resource "aws_lambda_function" "ecs_drain_lambda" {
   source_code_hash = "${data.archive_file.lambda_zip.output_base64sha256}"
   filename         = "${data.archive_file.lambda_zip.output_path}"
   handler          = "index.lambda_handler"
+  runtime          = "python2.7"
   timeout          = 300
   memory_size      = 256
 }
