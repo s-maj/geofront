@@ -19,6 +19,10 @@ data "template_file" "userdata" {
    }
 }
 
-data "template_file" "role_profile_policy" {
-  template = "${file("${path.module}/templates/profile.json")}"
+data "template_file" "ec2_profile_policy" {
+  template = "${file("${path.module}/templates/ec2_profile.json")}"
+}
+
+data "template_file" "asg_profile_policy" {
+  template = "${file("${path.module}/templates/asg_profile.json")}"
 }

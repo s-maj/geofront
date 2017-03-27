@@ -84,5 +84,9 @@ variable "valid_statistics" {
 }
 
 variable "scaling_adjustment" {
-  type        = "string"
+  type    = "string"
+}
+
+variable "sns_lambda_drain" {
+  type    = "string"
 }
