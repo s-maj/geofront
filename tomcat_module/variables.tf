@@ -36,6 +36,11 @@ variable "is_dns_zone_private" {
   default = "false"
 }
 
+variable "is_alb_internal" {
+  type    = "string"
+  default = "false"
+}
+
 variable "region" {
   type    = "string"
   default = "eu-west-1"

@@ -2,7 +2,7 @@ resource "aws_alb" "main" {
   name            = "${var.name}-alb"
   subnets         = ["${var.subnet_list_id}"]
   security_groups = ["${aws_security_group.alb_sg.id}"]
-  internal        = true
+  internal        = "${var.is_alb_internal}"
 }
 
 resource "aws_alb_target_group" "http" {
