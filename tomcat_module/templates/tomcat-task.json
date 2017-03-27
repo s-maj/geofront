@@ -2,7 +2,7 @@
    {
       "essential":true,
       "cpu":100,
-      "memory":256,
+      "memory":128,
       "image":"${container_version}",
       "name":"${container_name}",
       "portMappings":[
