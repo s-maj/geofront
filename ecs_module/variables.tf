@@ -26,10 +26,6 @@ variable "asg_max" {
   type    = "string"
 }
 
-variable "asg_desired" {
-  type    = "string"
-}
-
 variable "ssh_access_subnet_list" {
   type    = "list"
   default = ["10.0.0.0/8"]
@@ -38,4 +34,55 @@ variable "ssh_access_subnet_list" {
 variable "region" {
   type    = "string"
   default = "eu-west-1"
+}
+
+variable "adjustment_type" {
+  type    = "string"
+}
+
+variable "evaluation_periods" {
+  type    = "string"
+}
+
+variable "metric_name" {
+  type    = "string"
+}
+
+variable "name_space" {
+  type    = "string"
+  default = "AWS/EC2"
+}
+
+variable "period" {
+  type    = "string"
+}
+
+variable "statistic" {
+  type    = "string"
+  default = "Average"
+}
+
+variable "threshold" {
+  type    = "string"
+}
+
+variable "warmup" {
+  type    = "string"
+  default = "120"
+}
+
+variable "valid_statistics" {
+  type = "map"
+
+  default = {
+    Average     = "Average"
+    Maximum     = "Maximum"
+    Minimum     = "Minimum"
+    SampleCount = "SampleCount"
+    Sum         = "Sum"
+  }
+}
+
+variable "scaling_adjustment" {
+  type        = "string"
 }
