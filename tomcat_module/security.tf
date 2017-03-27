@@ -29,3 +29,12 @@ resource "aws_security_group_rule" "alb_egress" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = "${aws_security_group.alb_sg.id}"
 }
+
+resource "aws_security_group_rule" "alb_to_ecs_access" {
+  type                      = "ingress"
+  from_port                 = 0
+  to_port                   = 65535
+  protocol                  = "all"
+  source_security_group_id  = "${aws_security_group.alb_sg.id}"
+  security_group_id         = "${var.ecs_sg_id}"
+}
