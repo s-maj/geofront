@@ -1,6 +1,6 @@
 resource "aws_iam_role" "lambda_role" {
   name = "${var.name}-role"
-  assume_role_policy = "${data.template_file.ec2_profile_policy.rendered}"
+  assume_role_policy = "${data.template_file.lambda_profile.rendered}"
 }
 
 resource "aws_iam_instance_profile" "lambda_profile" {
