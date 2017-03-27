@@ -1,10 +1,10 @@
 resource "aws_iam_role" "ec2_role" {
-  name = "${var.name}-role"
+  name = "${var.name}-ec2-role"
   assume_role_policy = "${data.template_file.ec2_profile_policy.rendered}"
 }
 
 resource "aws_iam_instance_profile" "ec2_role_profile" {
-  name  = "${var.name}-role-profile"
+  name  = "${var.name}-ec2-role-profile"
   roles = ["${aws_iam_role.ec2_role.id}"]
 }
 
@@ -19,16 +19,16 @@ resource "aws_iam_role_policy_attachment" "ecr-policy-attach" {
 }
 
 resource "aws_iam_role" "asg_role" {
-  name = "${var.name}-role"
+  name = "${var.name}-asg-role"
   assume_role_policy = "${data.template_file.asg_profile_policy.rendered}"
 }
 
 resource "aws_iam_instance_profile" "asg_role_profile" {
-  name  = "${var.name}-role-profile"
-  roles = ["${aws_iam_role.ec2_role.id}"]
+  name  = "${var.name}-asg-role-profile"
+  roles = ["${aws_iam_role.asg_role.id}"]
 }
 
 resource "aws_iam_role_policy_attachment" "autoscaling-notification-policy-attach" {
-    role = "${aws_iam_role.ec2_role.id}"
+    role = "${aws_iam_role.asg_role.id}"
     policy_arn = "arn:aws:iam::aws:policy/service-role/AutoScalingNotificationAccessRole"
 }
