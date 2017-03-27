@@ -29,7 +29,7 @@ variable "dns_zone" {
 
 variable "is_dns_zone_private" {
   type    = "string"
-  default = "fa;se"
+  default = "false"
 }
 
 variable "region" {
