@@ -10,4 +10,5 @@ module "tomcat" {
   dns_zone            = "ganeti.pl"
   elb_dns_name        = "tomcat.ganeti.pl"
   container_version   = "tomcat:8.5"
+  container_count     = 2
 }
