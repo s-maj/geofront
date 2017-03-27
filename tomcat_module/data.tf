@@ -1,5 +1,5 @@
 data "template_file" "task_definition" {
-  template = "${file("${path.module}/templates/consul-server-definition.json")}"
+  template = "${file("${path.module}/templates/tomcat-task.json")}"
   vars {
     container_name    = "${var.name}"
     container_version = "${var.container_version}"
