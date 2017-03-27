@@ -6,9 +6,9 @@ resource "aws_alb" "main" {
 }
 
 resource "aws_alb_target_group" "http" {
-  name                  = "${var.name}-consul-api"
+  name                  = "${var.name}-http"
   deregistration_delay  = 30
-  port                  = 8500
+  port                  = 8080
   protocol              = "HTTP"
   vpc_id                = "${var.vpc_id}"
 
