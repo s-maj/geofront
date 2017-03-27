@@ -50,7 +50,7 @@ variable "metric_name" {
 
 variable "name_space" {
   type    = "string"
-  default = "AWS/EC2"
+  default = "AWS/ECS"
 }
 
 variable "period" {
@@ -62,7 +62,11 @@ variable "statistic" {
   default = "Average"
 }
 
-variable "threshold" {
+variable "scale_in_threshold" {
+  type    = "string"
+}
+
+variable "scale_out_threshold" {
   type    = "string"
 }
 

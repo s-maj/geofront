@@ -28,17 +28,17 @@ resource "aws_cloudwatch_metric_alarm" "scale_out" {
   comparison_operator = "GreaterThanOrEqualToThreshold"
   alarm_actions       = ["${aws_autoscaling_policy.scale_out.arn}"]
   alarm_description   = "${var.name} ASG Alarm"
-  alarm_name          = "${var.name}-asg-scale_out"
+  alarm_name          = "${var.name}-asg-scale-out"
 
   dimensions = {
-    "AutoScalingGroupName" = "${aws_autoscaling_group.ecs.id}"
+    "ClusterName" = "${var.name}"
   }
 
   evaluation_periods = "${var.evaluation_periods}"
   metric_name        = "${var.metric_name}"
   namespace          = "${var.name_space}"
   period             = "${var.period}"
-  threshold          = "${var.threshold}"
+  threshold          = "${var.scale_out_threshold}"
   statistic          = "${lookup(var.valid_statistics, var.statistic)}"
 }
 
@@ -47,16 +47,16 @@ resource "aws_cloudwatch_metric_alarm" "scale_in" {
   comparison_operator = "LessThanOrEqualToThreshold"
   alarm_actions       = ["${aws_autoscaling_policy.scale_in.arn}"]
   alarm_description   = "${var.name} ASG Alarm"
-  alarm_name          = "${var.name}-asg-scale_in"
+  alarm_name          = "${var.name}-asg-scale-in"
 
   dimensions = {
-    "AutoScalingGroupName" = "${aws_autoscaling_group.ecs.id}"
+    "ClusterName" = "${var.name}"
   }
 
   evaluation_periods = "${var.evaluation_periods}"
   metric_name        = "${var.metric_name}"
   namespace          = "${var.name_space}"
   period             = "${var.period}"
-  threshold          = "${var.threshold}"
+  threshold          = "${var.scale_in_threshold}"
   statistic          = "${lookup(var.valid_statistics, var.statistic)}"
 }

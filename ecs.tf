@@ -11,10 +11,11 @@ module "ecs_cluster" {
   ssh_access_subnet_list  = [ "0.0.0.0/0" ]
   asg_min                 = 3
   asg_max                 = 12
+  metric_name             = "MemoryReservation"
   adjustment_type         = "PercentChangeInCapacity"
-  metric_name             = "CPUUtilization"
   period                  = 60
   evaluation_periods      = 1
-  threshold               = 20
+  scale_in_threshold      = 20
+  scale_out_threshold     = 80
   scaling_adjustment      = 5
 }
