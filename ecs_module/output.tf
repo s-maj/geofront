@@ -13,3 +13,7 @@ output "asg_name" {
 output "region" {
   value = "${var.region}"
 }
+
+output "subnet_list_id" {
+  value = "${var.subnet_list_id}"
+}

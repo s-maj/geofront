@@ -36,3 +36,8 @@ variable "region" {
   type    = "string"
   default = "eu-west-1"
 }
+
+variable "container_count" {
+  type    = "string"
+  default = "6"
+}
