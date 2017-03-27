@@ -4,7 +4,7 @@ resource "aws_ecs_service" "tomcat" {
   desired_count                      = "${var.container_count}"
   task_definition                    = "${aws_ecs_task_definition.tomcat.arn}"
   iam_role                           = "${aws_iam_role.service_role.arn}"
-  depends_on                         = ["aws_iam_role.service_role"]
+  depends_on                         = ["aws_iam_role.service_role", "aws_alb_target_group.http"]
   deployment_maximum_percent         = 100
   deployment_minimum_healthy_percent = 67
 
