@@ -1,15 +1,15 @@
 resource "aws_lambda_function" "ecs_drain_lambda" {
+  function_name    = "${var.name}"
   role             = "${aws_iam_role.lambda_role.arn}"
   source_code_hash = "${base64sha256(file("lambda_function_payload.zip"))}"
   filename         = "lambda_function_payload.zip"
-  function_name    = "LambdaFunctionForASG"
   handler          = "index.lambda_handler"
   timeout          = 300
   memory_size      = 256
 }
 
 resource "aws_sns_topic" "sns" {
-  name = "ECS-drain-sns"
+  name = "${var.name}-sns"
 }
 
 resource "aws_lambda_permission" "lambda_sns" {
