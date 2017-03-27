@@ -9,7 +9,7 @@ module "ecs_cluster" {
   instance_type           = "t2.micro"
   key_name                = "geofront"
   ssh_access_subnet_list  = [ "0.0.0.0/0" ]
-  asg_min                 = 1
+  asg_min                 = 3
   asg_max                 = 12
   adjustment_type         = "PercentChangeInCapacity"
   metric_name             = "CPUUtilization"
