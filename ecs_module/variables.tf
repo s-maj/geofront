@@ -57,11 +57,6 @@ variable "period" {
   type    = "string"
 }
 
-variable "statistic" {
-  type    = "string"
-  default = "Average"
-}
-
 variable "scale_in_threshold" {
   type    = "string"
 }
@@ -73,6 +68,11 @@ variable "scale_out_threshold" {
 variable "warmup" {
   type    = "string"
   default = "120"
+}
+
+variable "statistic" {
+  type    = "string"
+  default = "Average"
 }
 
 variable "valid_statistics" {

@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "tomcat" {
   name                               = "${var.name}"
-  cluster                            = "${var.ecs_cluster_id}"
-  desired_count                      = "${var.container_count}"
+  desired_count                      = "${var.containers_desired}"
+  cluster                            = "${data.aws_ecs_cluster.ecs.id}"
   task_definition                    = "${aws_ecs_task_definition.tomcat.arn}"
   iam_role                           = "${aws_iam_role.service_role.arn}"
   depends_on                         = ["aws_iam_role.service_role", "aws_alb_target_group.http"]
