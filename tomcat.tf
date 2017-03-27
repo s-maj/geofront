@@ -1,4 +1,4 @@
-module "consul" {
+module "tomcat" {
   source = "./tomcat_module"
 
   vpc_id              = "${module.geofront-eu-west-1.id}"
