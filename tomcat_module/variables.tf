@@ -23,19 +23,6 @@ variable "ecs_sg_id" {
   type    = "string"
 }
 
-variable "dns_zone" {
-  type    = "string"
-}
-
-variable "elb_dns_name" {
-  type    = "string"
-}
-
-variable "is_dns_zone_private" {
-  type    = "string"
-  default = "false"
-}
-
 variable "is_alb_internal" {
   type    = "string"
   default = "false"

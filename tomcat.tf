@@ -10,8 +10,6 @@ module "tomcat" {
   ecs_task_role_arn      = "${module.iam_security.ecs_task_tomcat_role_arn}"
   ecs_autoscale_role_arn = "${module.iam_security.ecs_autoscale_role_arn}"
   name                   = "tomcat-server"
-  dns_zone               = "ganeti.pl"
-  elb_dns_name           = "tomcat.ganeti.pl"
   container_version      = "tomcat:8.5"
   adjustment_type        = "PercentChangeInCapacity"
   metric_name            = "CPUUtilization"
