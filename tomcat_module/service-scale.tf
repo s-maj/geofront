@@ -1,5 +1,5 @@
 resource "aws_appautoscaling_target" "ecs_target" {
-  role_arn           = "${aws_iam_role.app_scale_role.arn}"
+  role_arn           = "${var.ecs_autoscale_role_arn}"
   scalable_dimension = "${var.scalable_dimension}"
   resource_id        = "service/${var.ecs_cluster_name}/${var.name}"
   service_namespace  = "ecs"

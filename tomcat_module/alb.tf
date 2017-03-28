@@ -18,24 +18,12 @@ resource "aws_alb_target_group" "http" {
 }
 
 resource "aws_alb_listener" "http" {
-  load_balancer_arn = "${aws_alb.main.id}"
+  load_balancer_arn = "${aws_alb.main.arn}"
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
-    target_group_arn = "${aws_alb_target_group.http.id}"
+    target_group_arn = "${aws_alb_target_group.http.arn}"
     type             = "forward"
-  }
-}
-
-resource "aws_route53_record" "record" {
-  zone_id = "${data.aws_route53_zone.zone.zone_id}"
-  name    = "${var.elb_dns_name}"
-  type    = "A"
-
-  alias {
-    name                   = "${aws_alb.main.dns_name}"
-    zone_id                = "${aws_alb.main.zone_id}"
-    evaluate_target_health = true
   }
 }

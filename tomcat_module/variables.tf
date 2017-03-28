@@ -125,3 +125,15 @@ variable "scalable_dimension" {
 variable "scaling_adjustment" {
   type    = "string"
 }
+
+variable "ecs_service_role_arn" {
+  type    = "string"
+}
+
+variable "ecs_task_role_arn" {
+  type    = "string"
+}
+
+variable "ecs_autoscale_role_arn" {
+  type    = "string"
+}
