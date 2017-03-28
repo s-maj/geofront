@@ -21,8 +21,8 @@ resource "aws_autoscaling_group" "ecs" {
 
   initial_lifecycle_hook {
     name                    = "${var.name}-draining-hook"
-    notification_target_arn = "${var.sns_lambda_drain}"
-    role_arn                = "${aws_iam_role.asg_role.arn}"
+    notification_target_arn = "${var.ecs_drain_sns_arn}"
+    role_arn                = "${var.autoscaling_notification_role_arn}"
     default_result          = "CONTINUE"
     lifecycle_transition    = "autoscaling:EC2_INSTANCE_TERMINATING"
     default_result          = "ABANDON"
@@ -39,7 +39,7 @@ resource "aws_autoscaling_group" "ecs" {
 resource "aws_launch_configuration" "ecs" {
   key_name                    = "${var.key_name}"
   instance_type               = "${var.instance_type}"
-  iam_instance_profile        = "${aws_iam_instance_profile.ec2_role_profile.id}"
+  iam_instance_profile        = "${var.instance_profile_ecs_ec2_id}"
   image_id                    = "${data.aws_ami.ecs.id}"
   user_data                   = "${data.template_file.userdata.rendered}"
   security_groups             = ["${aws_security_group.ecs_sg.id}"]
