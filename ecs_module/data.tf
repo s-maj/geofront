@@ -18,11 +18,3 @@ data "template_file" "userdata" {
     cluster_name = "${var.name}"
    }
 }
-
-data "template_file" "ec2_profile_policy" {
-  template = "${file("${path.module}/templates/ec2_profile.json")}"
-}
-
-data "template_file" "asg_profile_policy" {
-  template = "${file("${path.module}/templates/asg_profile.json")}"
-}
