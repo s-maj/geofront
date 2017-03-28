@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "ecs_drain_lambda" {
   function_name    = "${var.name}"
-  role             = "${aws_iam_role.lambda_role.arn}"
+  role             = "${var.role_arn}"
   source_code_hash = "${data.archive_file.lambda_zip.output_base64sha256}"
   filename         = "${data.archive_file.lambda_zip.output_path}"
   handler          = "index.lambda_handler"

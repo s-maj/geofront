@@ -4,10 +4,9 @@
     {
       "Action": "sts:AssumeRole",
       "Principal": {
-        "Service": "ecs-tasks.amazonaws.com"
+        "Service": "lambda.amazonaws.com"
       },
-      "Effect": "Allow",
-      "Sid": ""
+      "Effect": "Allow"
     }
   ]
 }

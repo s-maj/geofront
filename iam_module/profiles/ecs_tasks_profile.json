@@ -4,10 +4,9 @@
     {
       "Action": "sts:AssumeRole",
       "Principal": {
-        "Service": "autoscaling.amazonaws.com"
+        "Service": "ecs-tasks.amazonaws.com"
       },
-      "Effect": "Allow",
-      "Sid": ""
+      "Effect": "Allow"
     }
   ]
 }

@@ -91,6 +91,14 @@ variable "scaling_adjustment" {
   type    = "string"
 }
 
-variable "sns_lambda_drain" {
+variable "ecs_drain_sns_arn" {
+  type    = "string"
+}
+
+variable "autoscaling_notification_role_arn" {
+  type    = "string"
+}
+
+variable "instance_profile_ecs_ec2_id" {
   type    = "string"
 }

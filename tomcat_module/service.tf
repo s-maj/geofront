@@ -1,10 +1,9 @@
 resource "aws_ecs_service" "tomcat" {
   name                               = "${var.name}"
+  iam_role                           = "${var.ecs_service_role_arn}"
   desired_count                      = "${var.containers_desired}"
   cluster                            = "${data.aws_ecs_cluster.ecs.id}"
   task_definition                    = "${aws_ecs_task_definition.tomcat.arn}"
-  iam_role                           = "${aws_iam_role.service_role.arn}"
-  depends_on                         = ["aws_iam_role.service_role", "aws_alb_target_group.http"]
   deployment_maximum_percent         = 200
   deployment_minimum_healthy_percent = 100
 
@@ -23,11 +22,13 @@ resource "aws_ecs_service" "tomcat" {
     container_name   = "${var.name}"
     container_port   = 8080
   }
+
+  depends_on = ["aws_alb_listener.http"]
 }
 
 resource "aws_ecs_task_definition" "tomcat" {
   family                = "${var.name}"
   container_definitions = "${data.template_file.task_definition.rendered}"
-  task_role_arn         = "${aws_iam_role.container_role.arn}"
+  task_role_arn         = "${var.ecs_task_role_arn}"
   network_mode          = "bridge"
 }
