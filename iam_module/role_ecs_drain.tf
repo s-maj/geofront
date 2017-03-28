@@ -1,5 +1,5 @@
 data "template_file" "ecs_drain_policy" {
-  template = "${file("${path.module}/policy/ecs_drain_policy.json")}"
+  template = "${file("${path.module}/policies/ecs_drain_policy.json")}"
 }
 
 resource "aws_iam_role" "ecs_drain" {
@@ -9,7 +9,7 @@ resource "aws_iam_role" "ecs_drain" {
 
 resource "aws_iam_role_policy" "ecs_drain" {
   name   = "ecs_drain"
-  role   = "${aws_iam_role.lambda_role.id}"
+  role   = "${aws_iam_role.ecs_drain.id}"
   policy = "${data.template_file.ecs_drain_policy.rendered}"
 }
 

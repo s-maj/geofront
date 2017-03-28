@@ -1,5 +1,5 @@
 data "template_file" "ecs_task_tomcat_policy" {
-  template = "${file("${path.module}/policy/ecs_task_tomcat_policy.json")}"
+  template = "${file("${path.module}/policies/ecs_task_tomcat_policy.json")}"
 }
 
 resource "aws_iam_role" "ecs_task_tomcat" {
