@@ -13,14 +13,13 @@ module "tomcat" {
   container_version      = "tomcat:8.5"
   adjustment_type        = "PercentChangeInCapacity"
   metric_name            = "CPUUtilization"
-  containers_desired     = 6
-  containers_min         = 2
+  containers_initial     = 6
+  containers_min         = 1
   containers_max         = 18
   cooldown               = 15
   period                 = 60
   evaluation_periods     = 1
   scale_in_threshold     = 20
   scale_out_threshold    = 80
-  scaling_adjustment     = 5
-
+  scaling_adjustment     = 10
 }

@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "tomcat" {
   name                               = "${var.name}"
   iam_role                           = "${var.ecs_service_role_arn}"
-  desired_count                      = "${var.containers_desired}"
+  desired_count                      = "${var.containers_initial}"
   cluster                            = "${data.aws_ecs_cluster.ecs.id}"
   task_definition                    = "${aws_ecs_task_definition.tomcat.arn}"
   deployment_maximum_percent         = 200
@@ -21,6 +21,10 @@ resource "aws_ecs_service" "tomcat" {
     target_group_arn = "${aws_alb_target_group.http.id}"
     container_name   = "${var.name}"
     container_port   = 8080
+  }
+
+  lifecycle {
+  ignore_changes = ["desired_count"]
   }
 
   depends_on = ["aws_alb_listener.http"]
