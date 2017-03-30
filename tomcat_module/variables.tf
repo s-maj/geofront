@@ -33,7 +33,7 @@ variable "region" {
   default = "eu-west-1"
 }
 
-variable "containers_desired" {
+variable "containers_initial" {
   type    = "string"
   default = "6"
 }
