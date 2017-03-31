@@ -4,6 +4,7 @@ resource "aws_autoscaling_group" "ecs" {
   max_size             = "${var.asg_max}"
   vpc_zone_identifier  = ["${var.subnet_list_id}"]
   launch_configuration = "${aws_launch_configuration.ecs.name}"
+  force_delete         = true
   enabled_metrics      = [
     "GroupMinSize",
     "GroupMaxSize",

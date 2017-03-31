@@ -5,6 +5,8 @@ resource "aws_appautoscaling_target" "ecs_target" {
   service_namespace  = "ecs"
   max_capacity       = "${var.containers_max}"
   min_capacity       = "${var.containers_min}"
+
+  depends_on = ["aws_ecs_service.tomcat"]
 }
 
 resource "aws_appautoscaling_policy" "scale_out" {
