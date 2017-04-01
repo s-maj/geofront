@@ -1,5 +1,3 @@
-provider "aws" {}
-
 module "geofront-eu-west-1" {
   source = "./vpc_module"
 
